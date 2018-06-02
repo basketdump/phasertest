@@ -148,8 +148,7 @@
             stars.children.iterate(function (child) {
                 child.enableBody(true, child.x, 0, true, true);
             });
-        }
-
+        
         var x = (player.x < 400) ? Phaser.Math.Between(400, 800) :
                                     Phaser.Math.Between(0, 400);
         
@@ -158,13 +157,14 @@
         bomb.setCollideWorldBounds(true);
         bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
         bomb.allowGravity = false;
+        }
     }
 
     function hitBomb (player, bomb) {
         this.physics.pause();
         
         player.setTint(0xff0000);
-        player.anims.player('turn');
+        player.anims.play('turn');
         gameOver = true;
     }
 
